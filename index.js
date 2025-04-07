@@ -25,8 +25,8 @@ app.use("/bids", verifyToken, bidRouter)
 
 
 // Error Handler
-app.use((req, res, next, error)=>{
-    res.status(404).json({message: "Route not found", error })
+app.use((error, req, res, next)=>{
+    res.status(500).json({message: "Route not found", error })
 })
 
 const PORT = process.env.PORT || 8080;
