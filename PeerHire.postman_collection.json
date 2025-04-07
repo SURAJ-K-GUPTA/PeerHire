@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "b94c567b-be8c-41ce-b7de-1b98d5e2cd27",
+		"name": "PeerHire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24704672",
+		"_collection_link": "https://peerhire.postman.co/workspace/PeerHire-Workspace~572cdab1-eef5-4ada-b957-ce2de8c40f92/collection/24704672-b94c567b-be8c-41ce-b7de-1b98d5e2cd27?action=share&source=collection_link&creator=24704672"
+	},
+	"item": [
+		{
+			"name": "/get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://peer-hire.vercel.app/",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Sumit\",\r\n    \"email\": \"sumit@gmail.com\",\r\n    \"password\": \"34-87f33&4\",\r\n    \"role\": \"employer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/auth/register",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"email\": \"sumit@gmail.com\",\r\n    \"password\": \"34-87f33&4\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/auth/login",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://peer-hire.vercel.app/auth/user",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"auth",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jobs/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Full Stack Dev\",\r\n    \"description\": \"Full Stack Dev Description\",\r\n    \"budget\": 35000,\r\n    \"duration\": 6,\r\n    \"skillsRequired\": [\"nodejs\",\"reactjs\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/jobs/create",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"jobs",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jobs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/jobs",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jobs?skills=react,nodejs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/jobs?skills=react,nodejs",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "skills",
+							"value": "react,nodejs"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/jobs/:jobId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/jobs/67f4499209a3baa0bcd1c333",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"jobs",
+						"67f4499209a3baa0bcd1c333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/bids/:jobId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0ODlhMDlhM2JhYTBiY2QxYzMxYyIsInJvbGUiOiJmcmVlbGFuY2VyIiwiZW1haWwiOiJzdXJhajFAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNjE5LCJleHAiOjE3NDQ2Njc0MTl9.FDF0ak77yQH4tXumHCR22mKQxJIBkDbG4JNyS7VtrUk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"bidAmount\":  36000,\r\n  \"timeline\": 1,\r\n  \"message\": \"bidding\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/bids/67f445a70df8aa382dca47f1",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"bids",
+						"67f445a70df8aa382dca47f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/bids/:jobId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/bids/67f445a70df8aa382dca47f1",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"bids",
+						"67f445a70df8aa382dca47f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/bids/:bidId/accept",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/bids/67f44a2909a3baa0bcd1c344/accept",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"bids",
+						"67f44a2909a3baa0bcd1c344",
+						"accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/bids/:bidId/accept Copy",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peer-hire.vercel.app/bids/67f44a2909a3baa0bcd1c344/reject",
+					"protocol": "https",
+					"host": [
+						"peer-hire",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"bids",
+						"67f44a2909a3baa0bcd1c344",
+						"reject"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

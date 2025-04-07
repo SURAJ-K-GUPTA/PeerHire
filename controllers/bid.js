@@ -14,11 +14,18 @@ const bidPlaceController = async (req, res) => {
       return res.status(400).json({ message: "Invalid request body", error: result.error });
     }
 
-    const { bidAmount, timeline, message } = result.data;
     const job = await Job.findById(req.params.jobId);
     if (!job) {
       return res.status(404).json({ message: "Job not found", error: "Job not found" });
     }
+
+
+    if (req.user.role !== "freelancer") {
+        return res.status(403).json({ message: "Unauthorized", error: "Only freelancers can place bids" });
+    }
+
+    const { bidAmount, timeline, message } = result.data;
+
     const bid = await Bid.create({
       job: job._id,
       freelancer: req.user.id,
@@ -36,8 +43,16 @@ const bidPlaceController = async (req, res) => {
 
 const getBidsController = async (req, res) => {
   try {
-    const job = req.params.jobId;
-    const bids = await Bid.find({ job }).populate("freelancer", "-password").populate("job");
+    const jobId = req.params.jobId;
+    const job = await Job.findById(jobId);
+    if (!job) {
+      return res.status(404).json({ message: "Job not found", error: "Job not found" });
+    }
+    if(job.postedBy.toString() !== req.user.id) {
+        return res.status(403).json({ message: "Unauthorized", error: "Only the job poster can view bids" });
+    }
+    
+    const bids = await Bid.find({ job: jobId }).populate("freelancer", "-password").populate("job");
     res.status(200).json({ bids });
   } catch (error) {
     return res.status(500).json({ message: "Invalid request", error: error.message });
