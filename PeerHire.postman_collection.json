@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "b94c567b-be8c-41ce-b7de-1b98d5e2cd27",
 		"name": "PeerHire",
+		"description": "Backend for Job Posting & Bidding API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24704672",
 		"_collection_link": "https://peerhire.postman.co/workspace/PeerHire-Workspace~572cdab1-eef5-4ada-b957-ce2de8c40f92/collection/24704672-b94c567b-be8c-41ce-b7de-1b98d5e2cd27?action=share&source=collection_link&creator=24704672"
@@ -23,7 +24,8 @@
 					"path": [
 						""
 					]
-				}
+				},
+				"description": "Endpoint to test working backend"
 			},
 			"response": []
 		},
@@ -53,9 +55,44 @@
 						"auth",
 						"register"
 					]
-				}
+				},
+				"description": "Endpoint to register freelancer or employer\n\nRequired Field: name, email, password, role\n\nreturns JWT token"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/auth/register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Sumit\",\r\n    \"email\": \"sumit@gmail.com\",\r\n    \"password\": \"34-87f33&4\",\r\n    \"role\": \"employer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/auth/register",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/auth/login",
@@ -83,9 +120,44 @@
 						"auth",
 						"login"
 					]
-				}
+				},
+				"description": "Endpoint to login by employer and freelancer\n\nRequired Field: email, password\n\nreturns JWT token"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/auth/login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email\": \"sumit@gmail.com\",\r\n    \"password\": \"34-87f33&4\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/auth/login",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/auth/user",
@@ -110,9 +182,41 @@
 						"auth",
 						"user"
 					]
-				}
+				},
+				"description": "Endpoint to get userDetails (specific us\n\nreturns user"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/auth/user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://peer-hire.vercel.app/auth/user",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/jobs/create",
@@ -146,9 +250,50 @@
 						"jobs",
 						"create"
 					]
-				}
+				},
+				"description": "End Point to create jobs by emplemployers\n\nRequired Field: title desdescription budget duration skillsRequired\n\nreturns Job"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/jobs/create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Dev\",\r\n    \"description\": \"Full Stack Dev Description\",\r\n    \"budget\": 35000,\r\n    \"duration\": 6,\r\n    \"skillsRequired\": [\"nodejs\",\"reactjs\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/jobs/create",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"jobs",
+								"create"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/jobs",
@@ -184,9 +329,49 @@
 					"path": [
 						"jobs"
 					]
-				}
+				},
+				"description": "Endpoint to get all jobs both freelancer and employer\n\nreturns Jobs"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/jobs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/jobs",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/jobs?skills=react,nodejs",
@@ -228,9 +413,55 @@
 							"value": "react,nodejs"
 						}
 					]
-				}
+				},
+				"description": "Endpoint to get all jobs filtered by skills both freelancer and employer  \nRequired query: skills\n\nreturns Jobs"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/jobs?skills=react,nodejs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/jobs?skills=react,nodejs",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "skills",
+									"value": "react,nodejs"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/jobs/:jobId",
@@ -267,9 +498,50 @@
 						"jobs",
 						"67f4499209a3baa0bcd1c333"
 					]
-				}
+				},
+				"description": "Endpoint to get single Job  \n\nRequired Params: jobId\n\nreturns Job"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/jobs/:jobId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/jobs/67f4499209a3baa0bcd1c333",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"jobs",
+								"67f4499209a3baa0bcd1c333"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/bids/:jobId",
@@ -303,9 +575,50 @@
 						"bids",
 						"67f445a70df8aa382dca47f1"
 					]
-				}
+				},
+				"description": "Endpoint to create bids (freelancer only)\n\nRequired params: jobId\n\nreturns bid"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/bids/:jobId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0ODlhMDlhM2JhYTBiY2QxYzMxYyIsInJvbGUiOiJmcmVlbGFuY2VyIiwiZW1haWwiOiJzdXJhajFAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNjE5LCJleHAiOjE3NDQ2Njc0MTl9.FDF0ak77yQH4tXumHCR22mKQxJIBkDbG4JNyS7VtrUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bidAmount\":  36000,\r\n  \"timeline\": 1,\r\n  \"message\": \"bidding\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/bids/67f445a70df8aa382dca47f1",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"bids",
+								"67f445a70df8aa382dca47f1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/bids/:jobId",
@@ -342,9 +655,50 @@
 						"bids",
 						"67f445a70df8aa382dca47f1"
 					]
-				}
+				},
+				"description": "Endpoint to get bids (specific employer only)\n\nRequired params: jobId\n\nreturns bids"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/bids/:jobId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/bids/67f445a70df8aa382dca47f1",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"bids",
+								"67f445a70df8aa382dca47f1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/bids/:bidId/accept",
@@ -379,9 +733,51 @@
 						"67f44a2909a3baa0bcd1c344",
 						"accept"
 					]
-				}
+				},
+				"description": "Endpoint to accept bids (employer only)\n\nRequired params: bidId\n\nreturns success message"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/bids/:bidId/accept",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/bids/67f44a2909a3baa0bcd1c344/accept",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"bids",
+								"67f44a2909a3baa0bcd1c344",
+								"accept"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "/bids/:bidId/accept Copy",
@@ -416,9 +812,51 @@
 						"67f44a2909a3baa0bcd1c344",
 						"reject"
 					]
-				}
+				},
+				"description": "Endpoint to reject bids (employer only)\n\nRequired params: bidId\n\nreturns success message"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/bids/:bidId/accept Copy",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjQ0OTMyMDlhM2JhYTBiY2QxYzMyZSIsInJvbGUiOiJlbXBsb3llciIsImVtYWlsIjoic3VtaXRAZ21haWwuY29tIiwiaWF0IjoxNzQ0MDYyNzcwLCJleHAiOjE3NDQ2Njc1NzB9.IOeBsGzyzWgGzPMKac8mtnXIc-XrsqAH9oqnFDF11gg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://peer-hire.vercel.app/bids/67f44a2909a3baa0bcd1c344/reject",
+							"protocol": "https",
+							"host": [
+								"peer-hire",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"bids",
+								"67f44a2909a3baa0bcd1c344",
+								"reject"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		}
 	]
 }
