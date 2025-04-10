@@ -1,11 +1,7 @@
 FROM node:23-alpine
 WORKDIR /
-COPY . .
-
+COPY package* .
 RUN npm install
-
+COPY . .
 EXPOSE 8080
-
 CMD ["npm", "start"]
-
-
